@@ -1,5 +1,8 @@
 import gsap from "gsap";
 import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const useGsapLinkDownFall = (arr) => {
   useEffect(() => {
@@ -68,6 +71,27 @@ export const useGsapBoxScaling = (arr) => {
         delay: 2.5,
         ease: "power4.out",
         stagger: 0.1
+      })
+  }, [])
+}
+
+export const useGsapProjectTitleFall = (arr, trig) => {
+  useEffect(() => {
+    const el = arr.map(title => title.current);
+
+    gsap.fromTo(el,
+      {
+        y: -500
+      },
+      {
+        y: 0,
+        duration: 1,
+        ease: "power4.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: trig.current,
+          start: 'top center'
+        }
       })
   }, [])
 }

@@ -1,8 +1,11 @@
+import Header from "../components/Header";
+import Projects from "./Projects";
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Header />
+      <Projects />
     </div>
   );
 };
