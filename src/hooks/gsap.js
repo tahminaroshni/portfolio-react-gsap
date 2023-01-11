@@ -75,7 +75,7 @@ export const useGsapBoxScaling = (arr) => {
   }, [])
 }
 
-export const useGsapProjectTitleFall = (arr, trig) => {
+export const useGsapProjectSectionTitleFall = (arr, trig) => {
   useEffect(() => {
     const el = arr.map(title => title.current);
 
@@ -86,6 +86,72 @@ export const useGsapProjectTitleFall = (arr, trig) => {
       {
         y: 0,
         duration: 1,
+        ease: "power4.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: trig.current,
+          start: 'top center'
+        }
+      })
+  }, [])
+}
+
+export const useGsapProjectLineForward = (arr, trig) => {
+  useEffect(() => {
+    const el = arr;
+
+    gsap.fromTo(el,
+      {
+        width: 0
+      },
+      {
+        width: '100%',
+        duration: 2,
+        delay: 0.5,
+        ease: "power4.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: trig.current,
+          start: 'top center'
+        }
+      })
+  }, [])
+}
+
+export const useGsapProjectTitleUpward = (arr, trig) => {
+  useEffect(() => {
+    const el = arr;
+
+    gsap.fromTo(el,
+      {
+        y: 500
+      },
+      {
+        y: 0,
+        duration: 1.5,
+        delay: 0.5,
+        ease: "power4.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: trig.current,
+          start: 'top center'
+        }
+      })
+  }, [])
+}
+
+export const useGsapProjectDetailsFall = (arr, trig, delay = 0.5) => {
+  useEffect(() => {
+    const el = arr;
+
+    gsap.fromTo(el,
+      {
+        y: -500
+      },
+      {
+        y: 0,
+        duration: 1,
+        delay: delay,
         ease: "power4.out",
         stagger: 0.1,
         scrollTrigger: {
